@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start":"node src/server.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
+    "my_project": "file:..",
     "nodemailer": "^7.0.3",
     "stream-chat": "^8.60.0"
   },

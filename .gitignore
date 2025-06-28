@@ -14,9 +14,6 @@ backend/node_modules/
 dist
 dist-ssr
 
-dist/
-build/
-
 
 # Editor directories and files
 .vscode/*
