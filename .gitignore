@@ -14,6 +14,11 @@ backend/node_modules/
 dist
 dist-ssr
 
+<<<<<<< HEAD
+=======
+dist/
+
+>>>>>>> db6311d59600e546ad268694fb6f1ce5af55b735
 
 # Editor directories and files
 .vscode/*
