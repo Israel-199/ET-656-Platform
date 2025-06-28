@@ -59,7 +59,7 @@ try {
     ]
    })
    if(existingRequest){
-    return res.status(400).json({message:"A friend request already exists between you and this user"})
+    return res.status(400).json({message:"A friend request already exists between you and this user"});
    }
 
    const FriendRequest=await friendRequest.create({
