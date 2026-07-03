@@ -19,7 +19,10 @@ const __dirname = path.resolve();
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://et-656-platform.vercel.app",
+    ],
     credentials: true,
   })
 );
