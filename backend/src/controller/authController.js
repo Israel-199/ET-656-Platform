@@ -99,7 +99,8 @@ export async function login(req, res) {
 
 
 export function logout(req, res) {
-  res.clearCookie("jwt", {
+  res.cookie("jwt", "", {
+    maxAge: 0,
     httpOnly: true,
     sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
     secure: process.env.NODE_ENV !== "development",
