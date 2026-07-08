@@ -57,10 +57,10 @@ if(isLoading) return <PageLoader/>
     <Route
           path="/onboarding"
           element={
-            isAuthenticated && !isOnboarded ? (
-              <OnboardingPage />
-            ) : isAuthenticated && isOnboarded ? (
-              <Navigate to="/" />
+            isAuthenticated ? (
+           (
+                <OnboardingPage />
+              ) 
             ) : (
               <Navigate to="/login" />
             )

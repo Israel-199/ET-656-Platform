@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const {mutate:logoutMutation} = useMutation({
         mutationFn:logout,
-        onSuccess:()=>queryClient.invalidateQueries({queryKey:["authUser"]})
+        onSuccess:()=>queryClient.setQueryData(["authUser"], null)
     })
 
      const { data: friendRequests } = useQuery({
