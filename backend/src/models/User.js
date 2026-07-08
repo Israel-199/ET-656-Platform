@@ -27,6 +27,10 @@ nativeLanguage:{
     type:String,
     default:""
 },
+location:{
+    type:String,
+    default:""
+},
 isOnboarded:{
     type:String,
     default:""

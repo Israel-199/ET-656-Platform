@@ -99,7 +99,11 @@ export async function login(req, res) {
 
 
 export function logout(req, res) {
-  res.clearCookie("jwt");
+  res.clearCookie("jwt", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  });
   res.status(200).json({ success: true, message: "Logout successful" });
 }
 
@@ -107,20 +111,21 @@ export async function onboard(req, res) {
   try {
     const userId = req.user._id;
 
-    const { fullName, bio, nativeLanguage,location } = req.body;
-    const existedInfo = await User.findOne({fullName,bio,nativeLanguage,location});
-    if (!fullName || !bio || !nativeLanguage || !location) {
-      
+    const { fullName, nativeLanguage, location } = req.body;
+
+    if (!fullName || !nativeLanguage || !location) {
       return res.status(400).json({
-        message: "All fields are required",
+        message: "Full Name, Native Language, and Location are required",
         missingFields: [
           !fullName && "fullName",
-          !bio && "bio",
           !nativeLanguage && "nativeLanguage",
           !location && "location",
         ].filter(Boolean),
-      })
+      });
     }
+
+    // Use whatever data was passed in
+    const updateData = { ...req.body };
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,
